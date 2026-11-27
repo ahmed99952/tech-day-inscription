@@ -1,5 +1,5 @@
-const SUPABASE_URL = "https://pgpmehbiovbpnrneots.supabase.co";
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBncG1laGJpd292YnBucm5lb3RzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU3MzY4NDcsImV4cCI6MjExMTMxMjg0N30.y7jja0HKyqOFPWM0_H90x3HVX7AB_fG5ePFdrq7Y-dk";
+const SUPABASE_URL = "https://jmibielzxlwemfiodiny.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_Mues8yxgDoVS3k-QEgR_mQ_y-wkIp4R";
 const STORAGE_KEY = "techday-sidi-bouzid-2026-registrations";
 
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
