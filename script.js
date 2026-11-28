@@ -21,7 +21,7 @@ function getRegistrations() {
   try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; }
 }
 function saveRegistrations(items) { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); }
-function updateCount() { countEl.textContent = String(getRegistrations().length); }
+function updateCount() { if (countEl) countEl.textContent = String(getRegistrations().length); }
 
 function setError(name, message) {
   const el = document.querySelector(`[data-error-for="${name}"]`);
@@ -180,7 +180,7 @@ form.addEventListener("submit", async (e) => {
 
 newRegistrationBtn.addEventListener("click", resetView);
 
-exportBtn.addEventListener("click", () => {
+if (exportBtn) exportBtn.addEventListener("click", () => {
   const rows = getRegistrations();
   if (!rows.length) { alert("Aucune inscription locale à exporter."); return; }
   const headers = ["createdAt","firstName","lastName","email","phone","organization","role","participation","teamName","member1","member2","member3","notes"];
@@ -194,7 +194,7 @@ exportBtn.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
-clearBtn.addEventListener("click", () => {
+if (clearBtn) clearBtn.addEventListener("click", () => {
   if (!getRegistrations().length) return;
   if (confirm("Supprimer les inscriptions enregistrées localement sur ce navigateur ?")) {
     localStorage.removeItem(STORAGE_KEY);
