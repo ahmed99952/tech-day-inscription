@@ -238,3 +238,14 @@ textarea { resize: vertical; min-height: 80px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+/* Info center */
+.info-center { margin-top: 2rem; display: flex; justify-content: center; }
+.info-card-center { width: 100%; max-width: 760px; text-align: center; }
+.info-card-center .info-list { align-items: center; }
+.info-card-center .info-list li { justify-content: center; text-align: left; width: 100%; max-width: 420px; margin: 0 auto; }
+.info-card-center h3 { text-align: center; }
+
+/* Members */
+.members-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.members-grid .field { margin-bottom: 0; }
+@media (max-width: 720px) { .members-grid { grid-template-columns: 1fr; } }
