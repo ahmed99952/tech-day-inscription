@@ -59,22 +59,39 @@ function getFormData() {
 function validate(data) {
   clearErrors();
   let ok = true;
-  const email = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phone = /^[0-9+()\s.-]{8,}$/;
+  const lettersOnly = /^[\p{L}\s'-]+$/u;
+  const gmail = /^[^\s@]+@gmail\.com$/i;
+  const phone8 = /^\d{8}$/;
 
   if (!data.firstName) { setError("firstName", "Le prénom est requis."); ok = false; }
+  else if (!lettersOnly.test(data.firstName)) { setError("firstName", "Le prénom doit contenir uniquement des lettres."); ok = false; }
+
   if (!data.lastName) { setError("lastName", "Le nom est requis."); ok = false; }
+  else if (!lettersOnly.test(data.lastName)) { setError("lastName", "Le nom doit contenir uniquement des lettres."); ok = false; }
+
   if (!data.email) { setError("email", "L'email est requis."); ok = false; }
-  else if (!email.test(data.email)) { setError("email", "Veuillez entrer un email valide."); ok = false; }
+  else if (!gmail.test(data.email)) { setError("email", "L'email doit être une adresse @gmail.com."); ok = false; }
+
   if (!data.phone) { setError("phone", "Le téléphone est requis."); ok = false; }
-  else if (!phone.test(data.phone)) { setError("phone", "Veuillez entrer un numéro valide."); ok = false; }
+  else if (!phone8.test(data.phone.replace(/\s+/g, ""))) { setError("phone", "Le téléphone doit contenir 8 chiffres."); ok = false; }
+
+  if (!data.organization) { setError("organization", "L'établissement est requis."); ok = false; }
+  else if (!lettersOnly.test(data.organization)) { setError("organization", "L'établissement doit contenir uniquement des lettres."); ok = false; }
+
   if (!data.participation) { setError("participation", "Veuillez choisir un type de participation."); ok = false; }
 
   if (data.participation === "hackathon") {
     if (!data.teamName) { setError("teamName", "Le nom de l'équipe est requis."); ok = false; }
+    else if (!lettersOnly.test(data.teamName)) { setError("teamName", "Le nom de l'équipe doit contenir uniquement des lettres."); ok = false; }
+
     if (!data.member1) { setError("member1", "Le membre 1 est requis."); ok = false; }
+    else if (!lettersOnly.test(data.member1)) { setError("member1", "Le membre 1 doit contenir uniquement des lettres."); ok = false; }
+
     if (!data.member2) { setError("member2", "Le membre 2 est requis."); ok = false; }
+    else if (!lettersOnly.test(data.member2)) { setError("member2", "Le membre 2 doit contenir uniquement des lettres."); ok = false; }
+
     if (!data.member3) { setError("member3", "Le membre 3 est requis."); ok = false; }
+    else if (!lettersOnly.test(data.member3)) { setError("member3", "Le membre 3 doit contenir uniquement des lettres."); ok = false; }
   }
 
   if (!data.consent) { setError("consent", "Vous devez accepter pour continuer."); ok = false; }
