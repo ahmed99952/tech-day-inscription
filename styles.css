@@ -267,3 +267,11 @@ textarea { resize: vertical; min-height: 80px; }
   .hero-qr { display: flex; width: 100%; }
   .footer-qr { width: 100%; }
 }
+/* Hackathon page */
+.page-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin: 0; letter-spacing: -0.02em; }
+.notice-box { padding: 1rem 1.25rem; border-radius: 12px; background: rgba(110,231,255,0.08); border: 1px solid rgba(110,231,255,0.2); color: #d7eef5; margin-bottom: 1.5rem; font-size: 0.95rem; line-height: 1.6; }
+.notice-box strong { color: var(--primary); }
+.form-section { margin-bottom: 1.75rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+.form-section:last-of-type { margin-bottom: 1.25rem; }
+.form-section-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.hackathon-page .form-card { max-width: 100%; }

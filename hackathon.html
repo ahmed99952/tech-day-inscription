@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription Hackathon - Tech Day Sidi Bouzid 2026</title>
+  <meta name="description" content="Inscription au hackathon Tech Day Sidi Bouzid 2026.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-orb orb-a"></div>
+  <div class="bg-orb orb-b"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html" aria-label="Tech Day Sidi Bouzid">
+        <span class="brand-mark">TD</span>
+        <span class="brand-text">Tech Day <small>Sidi Bouzid 2026</small></span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#programme">Programme</a>
+        <a href="index.html#hackathon">Hackathon</a>
+        <a href="index.html" class="btn btn-sm btn-ghost">Accueil</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section hackathon-page">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Hackathon</p>
+          <h1 class="page-title">Inscription Hackathon</h1>
+          <p>Inscrivez votre équipe au hackathon Smart Campus x Data &amp; IA.</p>
+        </div>
+
+        <div class="register-grid">
+          <div class="form-card">
+            <div class="notice-box">
+              <strong>Important :</strong> Seul le <strong>leader de l’équipe</strong> doit inscrire toute l’équipe. Chaque équipe doit être composée de <strong>1 leader + 2 membres</strong> (3 personnes au total).
+            </div>
+
+            <form id="hackathonForm" novalidate>
+              <div class="form-section">
+                <h3 class="form-section-title">Équipe</h3>
+                <label class="field">
+                  <span>Nom de l'équipe <span class="req">*</span></span>
+                  <input type="text" name="teamName" required placeholder="Nom de votre équipe">
+                  <small class="error" data-error-for="teamName"></small>
+                </label>
+              </div>
+
+              <div class="form-section">
+                <h3 class="form-section-title">Leader de l'équipe</h3>
+                <div class="form-row">
+                  <label class="field">
+                    <span>Prénom <span class="req">*</span></span>
+                    <input type="text" name="leaderFirstName" required placeholder="Prénom du leader">
+                    <small class="error" data-error-for="leaderFirstName"></small>
+                  </label>
+                  <label class="field">
+                    <span>Nom <span class="req">*</span></span>
+                    <input type="text" name="leaderLastName" required placeholder="Nom du leader">
+                    <small class="error" data-error-for="leaderLastName"></small>
+                  </label>
+                </div>
+                <div class="form-row">
+                  <label class="field">
+                    <span>Email <span class="req">*</span></span>
+                    <input type="email" name="leaderEmail" required placeholder="leader@gmail.com">
+                    <small class="error" data-error-for="leaderEmail"></small>
+                  </label>
+                  <label class="field">
+                    <span>Numéro téléphone <span class="req">*</span></span>
+                    <input type="tel" name="leaderPhone" required placeholder="12345678">
+                    <small class="error" data-error-for="leaderPhone"></small>
+                  </label>
+                </div>
+                <label class="field">
+                  <span>Numéro téléphone (réserve) <span class="req">*</span></span>
+                  <input type="tel" name="leaderPhone2" required placeholder="12345678">
+                  <small class="error" data-error-for="leaderPhone2"></small>
+                </label>
+              </div>
+
+              <div class="form-section">
+                <h3 class="form-section-title">Membres</h3>
+                <div class="form-row">
+                  <label class="field">
+                    <span>Membre 1 — Nom &amp; Prénom <span class="req">*</span></span>
+                    <input type="text" name="member1" required placeholder="Nom et prénom du membre 1">
+                    <small class="error" data-error-for="member1"></small>
+                  </label>
+                  <label class="field">
+                    <span>Membre 2 — Nom &amp; Prénom <span class="req">*</span></span>
+                    <input type="text" name="member2" required placeholder="Nom et prénom du membre 2">
+                    <small class="error" data-error-for="member2"></small>
+                  </label>
+                </div>
+              </div>
+
+              <label class="consent">
+                <input type="checkbox" name="consent" required>
+                <span>Je confirme que les informations sont correctes et que le leader inscrit l'équipe complète. <span class="req">*</span></span>
+              </label>
+              <small class="error" data-error-for="consent"></small>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-full" id="submitBtn">Confirmer l'inscription hackathon</button>
+              </div>
+              <p class="form-note">Les inscriptions sont enregistrées dans la base de données Supabase.</p>
+            </form>
+
+            <div id="successMessage" class="success-message hidden" role="status" aria-live="polite">
+              <div class="success-icon">✓</div>
+              <h3>Inscription hackathon confirmée !</h3>
+              <p>Merci <span id="successName"></span>, l'équipe <strong id="successTeam"></strong> a bien été inscrite.</p>
+              <div class="success-summary" id="successSummary"></div>
+              <button type="button" class="btn btn-ghost" id="newRegistration">Nouvelle inscription</button>
+            </div>
+          </div>
+
+          <aside class="side-card">
+            <h3>Rappel</h3>
+            <ul class="check-list">
+              <li>Seul le <strong>leader</strong> inscrit l'équipe.</li>
+              <li>Équipe = <strong>1 leader + 2 membres</strong>.</li>
+              <li>Hackathon : <strong>Smart Campus x Data &amp; IA</strong>.</li>
+              <li>48h en ligne — date à annoncer pendant l'événement.</li>
+            </ul>
+            <div class="side-qr">
+              <img src="assets/qr-code.png" alt="QR code inscription">
+              <p>Scannez pour ouvrir le site</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="brand-text">Tech Day <small>Sidi Bouzid 2026</small></div>
+        <p class="muted">Mercredi 2 Décembre 2026 • 13:00 – 17:00 • FST Sidi Bouzid</p>
+      </div>
+      <div class="footer-qr">
+        <img src="assets/qr-code.png" alt="QR code inscription">
+        <span>Scanner pour s'inscrire</span>
+      </div>
+      <p class="muted">Page d'inscription — HTML, CSS & JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="hackathon.js"></script>
+</body>
+</html>
